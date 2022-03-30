@@ -1,1 +1,1 @@
-# itgirlsschool
+вот ссылка на макет: https://www.figma.com/file/r2vg597mAWsTqxNJT3JszF/shelter-dom-(Copy)?node-id=151%3A91
