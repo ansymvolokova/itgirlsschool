@@ -26,27 +26,59 @@
 
 }
 
+body {
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+section, div, footer {
+    box-sizing: border-box;
+}
+
+.start-section, .about-section, .pets-section, .help-section, .donation-section, .contacts-section, footer {
+    width: 100%;
+    max-width: 1280px;
+}
+
+.start-section {
+    background: url("assets/start-screen-gradient-background.png") no-repeat;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    padding: 60px 40px 0 40px;
+}
+
+.start-section > *:not(:last-child) {
+    margin-bottom: 60px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 60px;
 }
 
 .nav-menu {
-    width: 443px;
     height: 27px;
     display: flex;
 }
 
-.nav-menu a, .logo p, .start-page p, #about-page p {
+.nav-menu a, .logo p, .start-section p, .about-section p {
     font-family: arialregular, "Roboto Thin", sans-serif;
 }
 
-.start-page-text h2, h3, h4, h5, .start-page button, .katrine-card .jennifer-card .woody-card button, #button-primary,
-.slider p, #contacts h4 {
+.start-section-description h2, h3, h4, h5, .start-section button, .katrine-card .jennifer-card .woody-card button, #button-primary,
+.slider p, .contacts-section h4 {
     font-family: georgiaregular, "Times New Roman", sans-serif;
+}
+
+.burger-menu {
+    display: none;
 }
 
 .nav-menu a {
@@ -78,31 +110,40 @@ a:active {
     font-size: 13px;
 }
 
-.start-page, #about-page, #pets, #help, #donation, #contacts, footer {
-    width: 1280px;
+.start-section-content {
+    display: flex;
 }
 
-.start-page {
-    background: url("assets/start-screen-gradient-background.png") no-repeat;
-    height: 908px;
-    position: relative;
 
-}
-
-.start-page-text {
-    width: 460px;
-    height: 322px;
-    padding-left: 40px;
+.start-section-description {
+    max-width: 460px;
     margin-top: 163px;
-
 }
 
-.start-page-text h2 {
+.start-section-description > *:not(:last-child) {
+    margin-bottom: 42px;
+}
+
+.start-section-description h2 {
     font-weight: 400;
     font-style: normal;
     font-size: 44px;
     line-height: 57px;
     color: white;
+}
+
+.start-section-description button > a {
+    text-decoration: none;
+    color: #292929;
+}
+
+.pets-content button > a {
+    text-decoration: none;
+    color: #292929;
+}
+
+.card, button:hover {
+    cursor: pointer;
 }
 
 h3 {
@@ -123,7 +164,7 @@ h5 {
     color: #545454;
 }
 
-.start-page p {
+.start-section p {
     color: #CDCDCD;
     font-size: 15px;
     font-weight: 400;
@@ -131,7 +172,7 @@ h5 {
     line-height: 24px;
 }
 
-.start-page button {
+.start-section button {
     width: 207px;
     height: 52px;
     border-radius: 45px;
@@ -143,57 +184,60 @@ h5 {
 }
 
 #start-screen-puppy {
-    width: 100%;
     height: 100%;
 }
 
-.img-puppy {
-    position: absolute;
+.start-section-img {
     width: 698px;
     height: 728px;
-    right: 40px;
-    bottom: 0;
 }
 
-#about-page {
-    height: 588px;
+.about-section {
     background-color: white;
-    top: 908px;
-    box-sizing: border-box;
     padding: 80px 80px 100px;
 }
 
-#about-page img {
+.about-section img {
     width: 300px;
-    margin-left: 175px;
-    margin-right: 120px;
 }
 
-#about-page p {
+.about-section p {
     color: #4C4C4C;
     font-size: 15px;
 
 }
 
-.about-content {
+.about-section-content {
     display: flex;
-    box-sizing: border-box;
-
 }
 
-#about-page .about-content {
-    width: 1200px;
+.about-section .about-section-content {
+    max-width: 1200px;
+    width: 100%;
     height: 100%;
+    display: flex;
 }
 
-#pets {
+.about-section-description {
+    flex: 1;
+}
+
+.about-section-description > *:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+.about-img {
+    text-align: center;
+    flex: 1;
+}
+
+.pets-section {
     background-color: #F6F6F6;
 }
 
-#pets h3 {
+.pets-section h3 {
     text-align: center;
 }
-
 
 .pets-content {
     display: flex;
@@ -208,6 +252,58 @@ h5 {
     justify-content: center;
 }
 
+.card{
+    width: 270px;
+}
+
+.cards{
+    width: 990px;
+    overflow: hidden;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content-card {
+    display: grid;
+    grid-template-columns: 350px 300px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 .katrine-card .jennifer-card .woody-card button {
     font-size: 17px;
 }
@@ -220,8 +316,6 @@ h5 {
 .jennifer-card {
     background: #FAFAFA;
     border-radius: 9px;
-    margin-left: 90px;
-    margin-right: 90px;
 }
 
 .woody-card {
@@ -230,12 +324,43 @@ h5 {
 }
 
 .slider {
-    display: flex;
-    justify-content: space-between;
     margin: 60px 40px;
-    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: "left-btn cards right-btn";
+    align-items: center;
 }
 
+.slider > *:not(:last-child) {
+    margin-right: 12px;
+}
+
+.slider .slider-btn {
+    height: 52px;
+}
+
+.slider .slider-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.slider .slider-btn.left {
+    transform: rotate(180deg);
+    grid-area: left-btn;
+}
+
+.slider .slider-btn.right {
+    grid-area: right-btn;
+}
+
+.slider .cards {
+    grid-area: cards;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider .cards > *:not(:last-child) {
+    margin-right: 90px;
+}
 
 #button-primary {
     display: flex;
@@ -254,8 +379,13 @@ h5 {
     font-size: 20px;
 }
 
-#help {
+.help-section {
     background: #FFFFFF;
+    padding: 80px 40px 100px 40px;
+}
+
+.help-section .help-content > *:not(:last-child) {
+    margin-bottom: 60px;
 }
 
 .help-content h3 {
@@ -267,8 +397,6 @@ h5 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    box-sizing: border-box;
-    margin: 60px 87px 100px;
 }
 
 .help-possibility {
@@ -276,39 +404,78 @@ h5 {
     display: flex;
     flex-flow: column;
     align-items: center;
+    justify-content: center;
+    height: 140px;
 }
 
-#donation {
+.help-possibility h4 {
+    white-space: nowrap;
+}
+
+.donation-section {
     background: #F6F6F6;
+}
+
+.donation-content p {
+    font-family: arialitalic sans-serif;
+    font-size: 12px;
+    line-height: 18px;
 }
 
 .card-item {
     background-color: #F1CDB3;
-    width: 349px;
+    max-width: 350px;
+    width: 100%;
     height: 43px;
     border-radius: 9px;
+    display: flex;
+    justify-content: center;
 }
 
 .card-info {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 15px;
+}
+
+.donation-section {
+    padding: 80px 0 100px 0;
 }
 
 .donation-content {
     display: flex;
-    box-sizing: border-box;
-    margin: 80px 182px 182px 100px;
+    margin: 0 auto;
+    max-width: 915px;
+}
+
+.donation-content > *:not(:last-child) {
+    margin-right: 30px;
+}
+
+.donation-description > *:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 720px 300px;
-    column-gap: 160px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.info{
+.footer-content .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content .info .contacts > :not(:last-child),
+.footer-content .info .locations > :not(:last-child) {
+    margin-bottom: 40px;
+}
+
+footer .info a:hover, a:link, a:visited {
+    text-decoration: none;
+}
+
+.info {
     display: grid;
     grid-template-columns: 278px 302px;
     column-gap: 160px;
@@ -330,75 +497,105 @@ h5 {
     align-items: baseline;
 }
 
-#contacts h4 {
+.contacts-section {
+    background: url("assets/footer-gradient-background.png") no-repeat;
+    padding: 40px 40px 0 40px;
+    background-size: auto 100%;
+}
+
+.contacts-section h3 {
+    color: #fff;
+}
+
+.contacts-section h4 {
     color: #F1CDB3;
     font-size: 20px;
     font-weight: normal;
 }
 
-@media screen and (max-width: 768px) {
-    .start-page, .about-page-content, #about-page, #pets, #help, #donation, #contacts, footer {
-        width: 768px;
+
+@media (max-width: 1140px) {
+    .slider {
+        grid-template-areas:
+                "cards cards"
+                "left-btn right-btn";
+        justify-content: center;
+        gap: 20px 80px;
     }
 
-    .start-page {
-        background: url("assets/1165height.png") no-repeat;
-        height: 1165px;
+    .slider .cards > *:not(:last-child) {
+        margin-right: 0;
     }
 
-    header {
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 30px;
+    .slider .cards > *:not(:first-child):not([style*="display: none"]) {
+        margin-left: 40px;
     }
 
-    .start-screen-content {
+    .footer-content {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .footer-content > *:not(:last-child) {
+        margin-bottom: 65px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .start-section {
+        padding: 30px 30px 0 30px;
+    }
+
+    .about-section, .help-section, .donation-section {
+        padding: 42px 25px;
+    }
+
+    .about-section .about-section-content {
+        max-width: 430px;
+        margin: 0 auto;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .start-section {
+        background-size: auto 100%;
+    }
+
+    .start-section-content {
         display: flex;
         flex-direction: column;
-        margin-left: 99px;
-        margin-right: 100px;
+        align-items: center;
     }
 
-    .img-puppy {
+    .start-section-img {
         position: static;
         width: 569px;
         height: 593px;
+        margin-top: 100px;
     }
 
-    .start-page-text {
-        margin: 60px 54px 100px 55px;
+    .start-section-description {
+        margin-top: 0;
     }
 
-    .start-page-text button {
-        margin: 42px 127px 100px 126px;
+    .start-section-description button {
+        margin: 0 auto;
+        display: block;
     }
 
-    #about-page {
-        height: 1048px;
-    }
-
-    .about-content {
+    .about-section-content {
         flex-direction: column-reverse;
-        width: 437px;
-        height: 868px;
         justify-content: center;
     }
 
-    #about-page img {
-        margin: 80px 68px 0 67px;
-    }
-
-    #pets {
-        height: 877px;
-    }
-
-    .pets-content {
-        width: 708px;
-        height: 697px;
-    }
-
-    .jennifer-card {
-        margin-left: 30px;
+    .about-section-content > *:not(:last-child) {
+        margin-top: 80px;
     }
 
     .woody-card {
@@ -409,19 +606,26 @@ h5 {
         margin: 40px 20px;
     }
 
-    .list {
-        display: grid;
-        grid-template-columns: repeat(3, 170px);
-        grid-template-rows: repeat(3, 113px);
-        gap: 30px;
+    .donation-dog img {
+        width: 505px;
     }
 
-    #donation {
-        height: 783px;
+    .footer-img img {
+        width: 300px;
     }
 
     .donation-content {
         flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .donation-content > *:not(:last-child) {
+        margin-top: 60px;
+        margin-right: 0;
+    }
+
+    .donation-description {
+        max-width: 380px;
     }
 
     .footer-content {
@@ -429,10 +633,69 @@ h5 {
         flex-direction: column;
 
     }
+
     .footer-img {
         display: flex;
         justify-content: center;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content .info {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .footer-content .info > *:not(:last-child) {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .start-section-img {
+        width: 260px;
+        height: 270px;
+    }
+
+    .about-img img {
+        max-width: 260px;
+    }
+
+    .slider {
+        justify-content: center;
+    }
+
+    .jennifer-card {
+        display: none;
+    }
+
+    .slider {
+        justify-content: center;
+    }
+
+    .footer-img img, .donation-dog img {
+        width: 260px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-img {
+        justify-content: start;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .card-item h4 {
+        font-size: 16px;
+    }
 }
 

@@ -1,0 +1,92 @@
+body{
+    max-width: 1280px;
+}
+
+#pets-list{
+    background-color: #F6F6F6;
+
+}
+
+.our-pets-content{
+    max-width: 1200px;
+    height: 1162px;
+    box-sizing: border-box;
+    margin-left: 40px;
+    margin-right: 40px;
+
+
+}
+
+h3{
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-bottom: 45px;
+    text-align: center;
+}
+.card{
+    width: 270px;
+    height: 435px;
+    background-color: white;
+}
+
+.card img + p{
+    margin: 30px 98px;
+}
+
+p + button{
+    width: 187px;
+    height: 52px;
+    margin: 0 42px 30px 42px;
+    box-sizing: border-box;
+    border: 2px solid  #F1CDB3;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+}
+.our-pets{
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: repeat(2, 435px);
+    gap: 30px;
+}
+
+@media screen and (max-width: 1235px) {
+    .our-pets{
+        display: grid;
+        grid-template-columns: repeat(3, 270px);
+        grid-template-rows: repeat(3, 435px);
+    }
+    #scarlett, #freddie {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .our-pets{
+        display: grid;
+        grid-template-columns: repeat(2, 270px);
+        grid-template-rows: repeat(3, 435px);
+    }
+    #pets-list{
+        height: 1733px;
+    }
+    #contacts{
+        height: 639px;
+    }
+}
+
+@media screen and (max-width: 631px) {
+    .our-pets{
+        display: grid;
+        grid-template-columns: 270px;
+        grid-template-rows: repeat(3, 435px);
+    }
+    #sophia, #timmy, #charly{
+        display: none;
+    }
+    #pets-list{
+        height: 1649px;
+    }
+    #contacts{
+        height: 809px;
+    }
+}
